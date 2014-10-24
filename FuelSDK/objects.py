@@ -314,7 +314,7 @@ class ET_DataExtension_Row(ET_CUDSupport):
             currentProp['Properties'] = {}
             currentProp['Properties']['Property'] = currentFields
 
-            if self.keys:
+            if hasattr(self, 'keys'):
 
                 currentKeys = []
 
