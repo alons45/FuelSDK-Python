@@ -313,7 +313,17 @@ class ET_DataExtension_Row(ET_CUDSupport):
             currentProp['CustomerKey'] = self.CustomerKey
             currentProp['Properties'] = {}
             currentProp['Properties']['Property'] = currentFields
-            
+
+            if self.keys:
+
+                currentKeys = []
+
+                for key, value in self.keys.iteritems():
+                    currentKeys.append({"Name" : key, "Value" : value})
+
+                currentProp['Keys'] = {}
+                currentProp['Keys']['Key'] = currentKeys
+
         obj = ET_Patch(self.auth_stub, self.obj_type, currentProp)
         return obj
     
